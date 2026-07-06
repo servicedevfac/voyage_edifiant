@@ -36,18 +36,11 @@
                             <thead class="table-light">
                                 <tr>
                                     <th>#</th>
-<<<<<<< HEAD
-                                    <th>Nom & Prenom</th>
-                                    <th>Email</th>
-                                    <th>N° Telephone</th>
-                                    <th>Date</th>
-=======
                                     <th>Véhicule</th>
                                     <th>Client</th>
                                     <th>Date</th>
                                     <th>Prix Total</th>
                                     <th>Statut</th>
->>>>>>> djuedev
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -60,15 +53,6 @@
                                     @foreach ($reservationvehicule as $key=>$rv)
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
-<<<<<<< HEAD
-                                            <td>{{ $rv->nom }} {{ $rv->prenom }}</td>
-                                            <td>{{ $rv->email }}</td>
-                                            <td>{{ $rv->numerotel }}</td>
-                                            <td>{{ $rv->datedebut }} au {{ $rv->datefin }}</td>
-                                            <td>
-                                                <a href="{{ route('vehicule.show', $rv->id) }}" class="btn btn-primary btn-sm"><i class="mdi mdi-eye"></i></a>
-
-=======
                                             <td>{{ $rv->vehicule ? $rv->vehicule->nom : ($rv->nomvehicule ?? 'N/A') }}</td>
                                             <td>{{ $rv->nom }} {{ $rv->prenom }}<br><small>{{ $rv->numerotel }}</small></td>
                                             <td>{{ $rv->datedebut }} au {{ $rv->datefin }}</td>
@@ -104,8 +88,6 @@
                                                         <i class="mdi mdi-close"></i>
                                                     </button>
                                                 </form>
-
->>>>>>> djuedev
                                                 <form action="{{ route('vehicule.destroy', $rv->id) }}" method="POST" style="display: inline;">
                                                     @csrf
                                                     @method('DELETE')

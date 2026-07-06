@@ -42,11 +42,7 @@ class HomeController extends Controller
             'nom_vehicule' => 'nullable|string|max:100',
             'date_debut' => 'required|date_format:d/m/Y',
             'date_fin' => 'required|date_format:d/m/Y|after_or_equal:date_debut',
-<<<<<<< HEAD
-            'message' => 'nullable|string|max:1000',
-=======
             'message' => 'required|string|max:1000',
->>>>>>> djuedev
         ]);
 
         // dd($validated);
@@ -114,11 +110,7 @@ class HomeController extends Controller
         ]);
         
 
-<<<<<<< HEAD
-        return redirect()->back()->with('success', 'Devis soumis soumis avec succès!');
-=======
         return redirect()->back()->with('success', 'Formulaire soumis avec succès!');
->>>>>>> djuedev
 
     }
 
@@ -182,11 +174,7 @@ class HomeController extends Controller
             'message' => $request->message,
         ]);
 
-<<<<<<< HEAD
-        return redirect()->back()->with('success','Formulaire enregistré avec succès');
-=======
         return redirect()->back()->with('status','Agence enregistré avec succès');
->>>>>>> djuedev
 
 
     }
@@ -220,11 +208,7 @@ class HomeController extends Controller
         $contact->message = $request->message;
         $contact->save();
         
-<<<<<<< HEAD
-        return redirect()->back()->with('success','Message enregistré avec succès');
-=======
         return redirect()->back()->with('status','Message enregistré avec succès');
->>>>>>> djuedev
     }
 
 }

@@ -24,8 +24,6 @@
         <link href="{{ url('/assets/back/css/style.min.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ url('/assets/back/css/icons.min.css') }}" rel="stylesheet" type="text/css">
         <script src="{{ url('/assets/back/js/config.js') }}"></script>
-<<<<<<< HEAD
-=======
 
         <!-- Modern UI Overrides -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -157,7 +155,6 @@
             .bg-gradient-warning { background: linear-gradient(135deg, #f59e0b, #d97706) !important; }
             .bg-gradient-info { background: linear-gradient(135deg, #0ea5e9, #0284c7) !important; }
         </style>
->>>>>>> djuedev
     </head>
 
     <body>

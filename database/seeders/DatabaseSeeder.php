@@ -3,13 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-<<<<<<< HEAD
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
-=======
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
->>>>>>> djuedev
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,13 +13,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-<<<<<<< HEAD
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-=======
         // 1. Rôles et permissions
         $this->call([
             rolePermisionseed::class,
@@ -49,7 +37,6 @@ class DatabaseSeeder extends Seeder
             DevisvehiculeSeeder::class,
             TeambuildingSeeder::class,
             ParcVehiculeSeeder::class,
->>>>>>> djuedev
         ]);
     }
 }

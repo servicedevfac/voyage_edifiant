@@ -1223,11 +1223,7 @@ p{
     text-decoration: none;
     color: white;
     font-size: 18px;
-<<<<<<< HEAD
-    text-transform: capitalize;
-=======
     /* text-transform: capitalize; */
->>>>>>> djuedev
     font-family: "Akrobat", sans-serif;
     z-index: 10;
 }

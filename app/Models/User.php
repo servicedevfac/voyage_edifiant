@@ -47,11 +47,5 @@ class User extends Authenticatable
         ];
     }
 
-<<<<<<< HEAD
-    public function posts()
-	{
-		return $this->hasMany(Post::class);
-	}
-=======
->>>>>>> djuedev
+
 }

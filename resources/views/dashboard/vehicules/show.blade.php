@@ -30,16 +30,6 @@
                     <a href="{{ route('vehicule.index') }}" class="btn btn-soft-danger"> Liste des reservations vehicule</a>
                     <p class="sub-header"></p>
 
-<<<<<<< HEAD
-                    <p><strong>Nom & Prenoms:</strong> {{ $devisvehicule->nom }} {{ $devisvehicule->prenom }}</p>
-                    <p><strong>Email:</strong> {{ $devisvehicule->email }}</p>
-                    <p><strong>Telephone: </strong>{{ $devisvehicule->numerotel }}</p>
-                    <p><strong>N° Piece:</strong> {{ $devisvehicule->numeropiece }}</p>
-                    <p><strong>Marque: </strong>{{ $devisvehicule->marque }}</p>
-                    <p><strong>Nom du vehicule: </strong>{{ $devisvehicule->nomvehicule }}</p>
-                    <p><strong>Date :</strong> {{ $devisvehicule->datedebut }} au {{ $devisvehicule->datefin }}</p>
-                    <p><strong>Message: </strong>{{ $devisvehicule->message }}</p>
-=======
                     <div class="row">
                         <div class="col-md-6">
                             <h5 class="mt-4">Informations Client</h5>
@@ -75,7 +65,6 @@
                     <div class="p-3 bg-light rounded">
                         <p class="mb-0">{{ $devisvehicule->message ?: 'Aucun message.' }}</p>
                     </div>
->>>>>>> djuedev
                 </div>
             </div>
         </div>
