@@ -32,6 +32,10 @@ return new class extends Migration
      */
     public function down(): void
     {
+        // Remplir les valeurs NULL avec une valeur par défaut pour éviter l'erreur "Not null violation" lors du rollback (PostgreSQL / MySQL)
+        \Illuminate\Support\Facades\DB::table('devisvehicules')->whereNull('marque')->update(['marque' => 'N/A']);
+        \Illuminate\Support\Facades\DB::table('devisvehicules')->whereNull('nomvehicule')->update(['nomvehicule' => 'N/A']);
+
         Schema::table('devisvehicules', function (Blueprint $table) {
             $table->dropForeign(['vehicule_id']);
             $table->dropColumn([
