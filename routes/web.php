@@ -25,60 +25,7 @@ use App\Models\User;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
-//****** Home *******//
-Route::get('/', [HomeController::class, 'accueil'])->name('accueil');
-Route::get('/a-propos', [HomeController::class, 'apropos'])->name('apropos');
-Route::get('/location-vehicule', [HomeController::class, 'locationvehicule'])->name('locationvehicule');
-Route::post('/reservation-vehicule', [HomeController::class, 'reservationvehicule_store'])->name('reservationvehicules.store');
-Route::get('/team-building', [HomeController::class, 'teambuilding'])->name('teambuilding');
-Route::post('/teambuilding_store', [HomeController::class, 'store_teambuilding'])->name('teambuilding.store');
-Route::get('/decouverte', [HomeController::class, 'decouverte'])->name('decouverte');
-Route::get('/decouverte/{slug}', [HomeController::class, 'decouverteshow'])->name('decouverteshow');
-Route::get('/agence', [HomeController::class, 'agence'])->name('agence');
-Route::post('/agence_store', [HomeController::class, 'store_agence'])->name('agence.store');
-Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
-Route::post('/contact_store', [HomeController::class, 'store_contact'])->name('contact.store');
 
-
-//****** Dashboard *******//
-
-Route::get('/dashboard', [DashController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::prefix('/dashboard')->middleware('auth')->group(function () {
-
-    //Reservation vehicule
-    Route::get('reservation-vehicule', [VehiculeController::class, 'index'])->name('vehicule.index');
-    Route::get('reservation-vehicule/{devisvehicule}', [VehiculeController::class, 'show'])->name('vehicule.show');
-    Route::delete('reservation-vehicule/{devisvehicule}', [VehiculeController::class, 'destroy'])->name('vehicule.destroy');
-
-    //Devis Team building
-    Route::get('devisteam', [DevisTeamController::class, 'index'])->name('devisteam.index');
-    Route::get('devisteam/{devisteam}', [DevisTeamController::class, 'show'])->name('devisteam.show');
-    Route::delete('devisteam/{devisteam}', [DevisTeamController::class, 'destroy'])->name('devisteam.destroy');
-    Route::get('teambuilding', [DevisTeamController::class, 'index_tb'])->name('teambuilding.liste');
-    Route::get('teambuilding/create', [DevisTeamController::class, 'create_tb'])->name('teambuilding.ajouter');
-    Route::post('teambuilding', [DevisTeamController::class, 'store_tb'])->name('team_building.store');
-
-
-    //Decouverte
-    Route::resource('decouverte', DecouverteController::class);
-
-    //Reservation agence
-    Route::get('liste-reservation', [AgenceController::class, 'index'])->name('agence.index');
-    Route::get('view-reservation/{agence}', [AgenceController::class, 'show'])->name('agence.show');
-    Route::delete('reservation/{agence}', [AgenceController::class, 'destroy'])->name('agence.destroy');
-
-    // Contact //
-    Route::get('liste-contact', [ContactController::class, 'index'])->name('contact.index');
-    Route::get('view-contact/{contact}', [ContactController::class, 'show'])->name('contact.show');
-    Route::delete('contact/{contact}', [ContactController::class, 'destroy'])->name('contact.destroy');
-
-
-    Route::group(['middleware' => ['role:superadmin|admin']], function() {
-
-        // Utilisateurs //
-
-use Illuminate\Support\Facades\Route;
 
 // ============================================================
 // ROUTES FRONT (publiques)
