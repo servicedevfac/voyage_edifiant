@@ -8,23 +8,17 @@ Notre agence | Voyage Édifiant Côte d’Ivoire
 
 @endsection
 
-
-
 @section('meta-description')
 
 Découvrez notre agence basée en Côte d'Ivoire : expertise locale, passion du voyage et accompagnement personnalisé pour des séjours uniques.
 
 @endsection
 
-
-
 @section('meta-keywords')
 
 agence voyage Abidjan, Voyage Édifiant, experts voyages Côte d'Ivoire, accompagnement personnalisé
 
 @endsection
-
-
 
 @section('meta-image')
 
