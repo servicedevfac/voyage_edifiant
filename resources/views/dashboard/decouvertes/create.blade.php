@@ -80,9 +80,15 @@
                             <button type="submit" class="btn btn-secondary">Soumettre</button>
                         </form>
 
+<<<<<<< HEAD
                     </div> 
                 </div> 
             </div> 
+=======
+                    </div> <!-- end card-body-->
+                </div> <!-- end card-->
+            </div> <!-- end col-->
+>>>>>>> djuedev
         </div>
         <!-- end row -->
 

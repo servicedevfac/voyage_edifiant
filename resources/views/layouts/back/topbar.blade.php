@@ -4,13 +4,21 @@
         <!-- Brand Logo -->
         <div class="logo-box">
             <!-- Brand Logo Light -->
+<<<<<<< HEAD
             <a href="index.html" class="logo-light">
+=======
+            <a href="{{ route('dashboard') }}" class="logo-light">
+>>>>>>> djuedev
                 <img src="{{ url('assets/back/images/logo-light.png') }}" alt="logo" class="logo-lg" height="22">
                 <img src="{{ url('assets/back/images/logo-sm.png') }}" alt="small logo" class="logo-sm" height="22">
             </a>
 
             <!-- Brand Logo Dark -->
+<<<<<<< HEAD
             <a href="index.html" class="logo-dark">
+=======
+            <a href="{{ route('dashboard') }}" class="logo-dark">
+>>>>>>> djuedev
                 <img src="{{ url('assets/back/images/logo-dark.png') }}" alt="dark logo" class="logo-lg" height="22">
                 <img src="{{ url('assets/back/images/logo-sm.png') }}" alt="small logo" class="logo-sm" height="22">
             </a>
@@ -24,6 +32,16 @@
 
     <ul class="topbar-menu d-flex align-items-center gap-4">
 
+<<<<<<< HEAD
+=======
+        <!-- Lien vers le front -->
+        <li class="d-none d-md-inline-block">
+            <a class="nav-link" href="{{ route('accueil') }}" target="_blank" title="Voir le site">
+                <i class="mdi mdi-web font-size-24"></i>
+            </a>
+        </li>
+
+>>>>>>> djuedev
         <li class="d-none d-md-inline-block">
             <a class="nav-link" href="" data-bs-toggle="fullscreen">
                 <i class="mdi mdi-fullscreen font-size-24"></i>
@@ -45,7 +63,11 @@
             <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
                 <!-- item-->
                 <div class="dropdown-header noti-title">
+<<<<<<< HEAD
                     <h6 class="text-overflow m-0">Welcome !</h6>
+=======
+                    <h6 class="text-overflow m-0">Bienvenue !</h6>
+>>>>>>> djuedev
                 </div>
 
                 <!-- item-->
@@ -54,10 +76,26 @@
                     <span>Mon Profil</span>
                 </a>
 
+<<<<<<< HEAD
                 <div class="dropdown-divider"></div>
 
                 <!-- item-->
                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i> Deconnexion</a>
+=======
+                <!-- Lien vers le site -->
+                <a href="{{ route('accueil') }}" class="dropdown-item notify-item" target="_blank">
+                    <i class="fe-globe"></i>
+                    <span>Voir le site</span>
+                </a>
+
+                <div class="dropdown-divider"></div>
+
+                <!-- item-->
+                <a href="{{ route('logout') }}" class="dropdown-item notify-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <i class="fa fa-power-off"></i>
+                    <span>Déconnexion</span>
+                </a>
+>>>>>>> djuedev
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf

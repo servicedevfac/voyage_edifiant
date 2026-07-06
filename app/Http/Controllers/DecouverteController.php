@@ -173,16 +173,28 @@ class DecouverteController extends Controller
     public function destroy(Decouverte $decouverte)
     {
         // Supprimer l'image principale si elle existe
+<<<<<<< HEAD
         if ($decouverte->imageprincipale && file_exists(public_path('uploads/decouvertes/' .$decouverte->imageprincipale))) {
             unlink(public_path('uploads/decouvertes/' .$decouverte->imageprincipale)); // Supprimer l'image principale du système de fichiers
+=======
+        if ($decouverte->imageprincipale && file_exists(public_path($decouverte->imageprincipale))) {
+            unlink(public_path($decouverte->imageprincipale));
+>>>>>>> djuedev
         }
 
         // Supprimer les images multiples si elles existent
         if ($decouverte->imagesecondaire) {
+<<<<<<< HEAD
             $images = json_decode($decouverte->imagesecondaire, true);
             foreach ($images as $image) {
                 if (file_exists(public_path('uploads/decouvertes/' .$image))) {
                     unlink(public_path('uploads/decouvertes/' .$image)); // Supprimer chaque image multiple du système de fichiers
+=======
+            $images = is_array($decouverte->imagesecondaire) ? $decouverte->imagesecondaire : json_decode($decouverte->imagesecondaire, true);
+            foreach ($images as $image) {
+                if (file_exists(public_path($image))) {
+                    unlink(public_path($image));
+>>>>>>> djuedev
                 }
             }
         }

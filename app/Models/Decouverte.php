@@ -9,4 +9,11 @@ class Decouverte extends Model
     protected $fillable = [
         'nom_ville', 'titre', 'description', 'imageprincipale', 'slug', 'imagesecondaire',
     ];
+<<<<<<< HEAD
+=======
+
+    protected $casts = [
+        'imagesecondaire' => 'array',
+    ];
+>>>>>>> djuedev
 }
