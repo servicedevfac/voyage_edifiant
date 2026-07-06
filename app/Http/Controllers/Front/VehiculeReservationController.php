@@ -38,11 +38,11 @@ class VehiculeReservationController extends Controller
             'nom' => 'required|string|max:255',
             'prenom' => 'required|string|max:255',
             'email' => 'nullable|email',
-            'telephone' => 'required|string|max:20',
+            'telephone' => 'required|string|max:30',
             'numero_piece' => 'required|string|max:50',
-            'date_debut' => 'required|date_format:Y-m-d|after_or_equal:today',
-            'date_fin' => 'required|date_format:Y-m-d|after_or_equal:date_debut',
-            'heure_prise_en_charge' => 'nullable|date_format:H:i',
+            'date_debut' => 'required|string',
+            'date_fin' => 'required|string',
+            'heure_prise_en_charge' => 'nullable|string',
             'lieu_prise_en_charge' => 'nullable|string|max:255',
             'lieu_restitution' => 'nullable|string|max:255',
             'avec_chauffeur' => 'boolean',
@@ -51,8 +51,17 @@ class VehiculeReservationController extends Controller
 
         $vehicule = Vehicule::findOrFail($request->vehicule_id);
 
-        $dateDebut = Carbon::createFromFormat('Y-m-d', $request->date_debut);
-        $dateFin = Carbon::createFromFormat('Y-m-d', $request->date_fin);
+        try {
+            $dateDebut = Carbon::createFromFormat('Y-m-d', $request->date_debut);
+        } catch (\Exception $e) {
+            $dateDebut = Carbon::parse($request->date_debut);
+        }
+
+        try {
+            $dateFin = Carbon::createFromFormat('Y-m-d', $request->date_fin);
+        } catch (\Exception $e) {
+            $dateFin = Carbon::parse($request->date_fin);
+        }
         
         // Calcul du nombre de jours (minimum 1 jour)
         $jours = $dateDebut->diffInDays($dateFin) + 1;

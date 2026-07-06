@@ -26,17 +26,26 @@ class TeamBuildingController extends Controller
             'nom' => 'required|string|max:255',
             'prenom' => 'required|string|max:255',
             'email' => 'required|email|max:255',
-            'telephone' => 'required|regex:/^\d{10}$/',
+            'telephone' => 'required|string|max:30',
             'nbrepers' => 'required|integer|min:0',
             'typedactivite' => 'required|string|max:255',
-            'apartir' => 'required|date_format:d/m/Y',
-            'jusquau' => 'required|date_format:d/m/Y|after_or_equal:apartir',
+            'apartir' => 'required|string',
+            'jusquau' => 'required|string',
             'message' => 'required|string|max:1000',
         ]);
 
-        // Convertir les dates au bon format
-        $dateDebut = Carbon::createFromFormat('d/m/Y', $request->apartir)->format('Y-m-d');
-        $dateFin = Carbon::createFromFormat('d/m/Y', $request->jusquau)->format('Y-m-d');
+        // Convertir les dates au bon format en gérant d/m/Y et Y-m-d
+        try {
+            $dateDebut = Carbon::createFromFormat('d/m/Y', $request->apartir)->format('Y-m-d');
+        } catch (\Exception $e) {
+            $dateDebut = Carbon::parse($request->apartir)->format('Y-m-d');
+        }
+
+        try {
+            $dateFin = Carbon::createFromFormat('d/m/Y', $request->jusquau)->format('Y-m-d');
+        } catch (\Exception $e) {
+            $dateFin = Carbon::parse($request->jusquau)->format('Y-m-d');
+        }
 
         $devisteam = Devisteam::create([
             'profil' => $request->profil,

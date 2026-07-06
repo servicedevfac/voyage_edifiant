@@ -23,21 +23,30 @@ class AgenceReservationController extends Controller
             'nom' => 'required|string|max:255',
             'prenom' => 'required|string|max:255',
             'email' => 'required|email|max:255',
-            'numero' => 'required|string|max:20',
+            'numero' => 'required|string|max:30',
             'presidence' => 'required|string|max:255',
             'destination' => 'required|string|max:255',
-            'apartirdu' => 'required|date_format:d/m/Y',
-            'jusquau' => 'required|date_format:d/m/Y|after_or_equal:apartirdu',
+            'apartirdu' => 'required|string',
+            'jusquau' => 'required|string',
             'nbrejour' => 'required|integer|min:1',
             'nbreadulte' => 'required|integer|min:0',
             'nbrenft' => 'required|integer|min:0',
             'nbrebebe' => 'required|integer|min:0',
-            'message' => 'string|max:2000',
+            'message' => 'nullable|string|max:2000',
         ]);
 
-        // Convertir les dates au bon format
-        $dateDebut = Carbon::createFromFormat('d/m/Y', $request->apartirdu)->format('Y-m-d');
-        $dateFin = Carbon::createFromFormat('d/m/Y', $request->jusquau)->format('Y-m-d');
+        // Convertir les dates au bon format en gérant d/m/Y et Y-m-d
+        try {
+            $dateDebut = Carbon::createFromFormat('d/m/Y', $request->apartirdu)->format('Y-m-d');
+        } catch (\Exception $e) {
+            $dateDebut = Carbon::parse($request->apartirdu)->format('Y-m-d');
+        }
+
+        try {
+            $dateFin = Carbon::createFromFormat('d/m/Y', $request->jusquau)->format('Y-m-d');
+        } catch (\Exception $e) {
+            $dateFin = Carbon::parse($request->jusquau)->format('Y-m-d');
+        }
 
         $agence = Agence::create([
             'nom' => $request->nom,
