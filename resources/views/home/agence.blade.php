@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-
+@section('hide-global-alert', true)
 
 @section('meta-title')
 
@@ -425,6 +425,8 @@ agence voyage Abidjan, Voyage Édifiant, experts voyages Côte d'Ivoire, accompa
                 <p class="text-leger">Confier nous vos voyages puis dormez tranquille</p>
 
             </div>
+
+            @include('partials.form-alert')
 
             <form class="row g-3 m-b300" method="POST" action="{{ route('agence.store') }}">
 

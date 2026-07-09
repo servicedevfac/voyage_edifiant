@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-
+@section('hide-global-alert', true)
 
 @section('meta-title')
 
@@ -721,6 +721,8 @@ team building Abidjan, activités entreprise Côte d'Ivoire, cohésion d'équipe
 
 
                 <div class="modal-body">
+
+                    @include('partials.form-alert')
 
                     <form class="row g-3" action="{{ route('teambuilding.store') }}" method="POST">
 

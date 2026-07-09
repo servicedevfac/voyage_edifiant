@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('hide-global-alert', true)
+
 @section('meta-title')
 Contactez-nous | Voyage Édifiant Côte d’Ivoire
 @endsection
@@ -57,6 +59,7 @@ contact Voyage Édifiant, réservation voyage, chauffeur Abidjan, service client
                     <div class="formulaire">
                         <div class="row gx-4 gy-4">
                             <div class="col-lg-6">
+                                @include('partials.form-alert')
                                 <form class="row g-3 m-b10" action="{{ route('contact.store') }}" method="post" >
                                     @csrf
 

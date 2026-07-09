@@ -56,7 +56,6 @@ class VehiculeReservationController extends Controller
         } catch (\Exception $e) {
             $dateDebut = Carbon::parse($request->date_debut);
         }
-
         try {
             $dateFin = Carbon::createFromFormat('Y-m-d', $request->date_fin);
         } catch (\Exception $e) {
@@ -100,6 +99,6 @@ class VehiculeReservationController extends Controller
         }
 
         // Redirection avec message de succès
-        return redirect()->route('locationvehicule')->with('success', 'Votre demande de réservation a été enregistrée avec succès. Notre équipe vous contactera sous peu.');
+        return redirect()->back()->with('success', 'Votre demande de réservation a été enregistrée avec succès. Notre équipe vous contactera sous peu.');
     }
 }

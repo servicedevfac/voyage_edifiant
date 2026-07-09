@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('hide-global-alert', true)
+
 @section('meta-title')
 Détails de la découverte | Voyage Édifiant Côte d’Ivoire
 @endsection
@@ -62,6 +64,7 @@ détail excursion Côte d'Ivoire, circuits touristiques, découverte Abidjan, Vo
                                 </div>
 
                                 <div class="modal-body">
+                                    @include('partials.form-alert')
                                     <form class="row g-3" action="{{ route('teambuilding.store') }}" method="POST">
                                         @csrf
 

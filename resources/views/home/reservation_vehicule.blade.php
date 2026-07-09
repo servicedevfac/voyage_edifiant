@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('hide-global-alert', true)
+
 @section('meta-title')
 Réservation de {{ $vehicule->nom }} | Voyage Édifiant Côte d’Ivoire
 @endsection
@@ -57,9 +59,7 @@ Réservation de {{ $vehicule->nom }} | Voyage Édifiant Côte d’Ivoire
                             <p class="text-leger">Veuillez remplir vos informations pour confirmer la location du véhicule.</p>
                         </div>
                         
-                        @if(session('success'))
-                            <div class="alert alert-success">{{ session('success') }}</div>
-                        @endif
+                        @include('partials.form-alert')
 
                         <form method="POST" action="{{ route('reservationvehicules.store') }}" id="reservationForm" class="row g-3">
                             @csrf
